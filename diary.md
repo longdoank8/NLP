@@ -39,7 +39,7 @@
 * --model_name "tts_models/en/ljspeech/glow-tts" --vocoder_name "vocoder_models/en/ljspeech/univnet"
 * TTS needs a TTSmodel and a vocoder because tts is comprehensive system including a vocoder 
 * problem: TTS can't take txt.files as input only terminal inline text 
-* solution: export SAMPLE=`cat test.txt` and use $SAMPLE as input variable 
+* solution: export SAMPLE=`cat test1.txt` and use $SAMPLE as input variable 
 
 ## 13. April
 
