@@ -6,32 +6,35 @@
 *For customers*: provide dubbed video
 
 
-## First week 
+## March
 
-* 
-* 
-* 
+* research and study paper about video dubbing, lip syncing
+* install and run open source repositories (Google Dubber, wav2lip)
 
-## Second week
+* Google Dubber: uses 3 google cloud APIs (translation, TTS, STT)
+* convert mp4 in wav-file, diarize, punctuation recognizer and time recognizer
+* puts sentences with timestamp in json-file and translates it and saves it into multiple mp3-files
+* call TTS API, different voices can be chosen
+* mp3-file combined with mp4-file
+* problems: translation incorrect, adaptive speaking rate too fast, umlaute pronounced incorrectly, can't reconize brands
 
-* 
-* 
+* wav2lip needs muted video and audio with the same length
+* face has to be always visible, no black or blurry frames
+* most models trained for detecting english
 
-## Third week
+* run various tests on different videos
+* established a working pipeline using python scripts, Google APIs and wav2lip
 
-* 
-* 
 
 ## April
 
 * ocotillo works → transcription saved in tsv.file
 * openNMT (New! v3 English-German - Transformer Large) (https://opennmt.net/Models-py/)
 * transformer doesn’t work well, needs training 
-* test with google APIs
-* use translated audio → transcribe → synthesize voice with tortoise 
-* tortoise too slow → use coqui.ai TTS 
+* use audio → transcribe → synthesize voice with tortoise 
+* tortoise too slow → use coqui.ai (TTS) 
 * --model_name "tts_models/en/ljspeech/glow-tts" --vocoder_name "vocoder_models/en/ljspeech/univnet"
 * TTS needs a TTSmodel and a vocoder because tts is comprehensive system including a vocoder 
-* The best sounding in my opinion is tts_models/en/ljspeech/fast_pitch and vocoder_models/en/ljspeech/hifigan_v2
-* They are specified in the corpus which has a speaker_ids file, but in coqui they got scrambled, see #2258
-* At least as of three months ago in January when I ran a script to generate all the voices, these were American accents in Coqui's VCTK-VITS:  256 M, 257 F, 270 F, 287 M, 293 F, 317 M, 360 F (may not be all) 
+* problem: TTS can't take txt.files as input only terminal inline text 
+* solution: export SAMPLE=`cat sample.txt` and use $SAMPLE as input variable 
+
